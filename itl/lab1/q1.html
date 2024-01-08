@@ -1,0 +1,65 @@
+<html>
+	<head>
+		<title> q1 </title>
+			<script type = "text/javascript" src = "jquery-3.7.1.js"></script>
+			<style>
+				#div1 {
+					position: relative;
+				}
+				#div2 {
+					position: relative;
+					left: 50%;
+					right: 50%;
+					top: 50px;
+				}
+			</style>
+			<script>
+				$(document).ready(function() {
+					$("tr:even").css("background-color", "gold");
+					$("tr:odd").css("background-color", "lightblue");
+					$("#b1").click(function() {
+						$("#div1").animate({
+							"left": "+=50px"
+						}, "fast",
+						() => {
+						});
+					});
+					$("#b2").click(function() {
+						$("#div1").animate({
+							"left": "-=50px"
+						}, "slow",
+						() => {
+						});
+					});
+				});
+			</script>
+	</head>
+	<body>
+		<div id="div1">
+			<table id="t1" width=500px>
+				<tr>
+					<td> hello </td>
+					<td> world </td>
+					<td> hope </td>
+				</tr>
+				<tr>
+					<td> you </td>
+					<td> are </td>
+					<td> enjoying </td>
+				</tr>
+				<tr>
+					<td> jquery </td>
+					<td> happy </td>
+					<td> learning </td>
+				</tr>
+			</table>
+			<br>
+			<img src="jquery.png" width="500" height="500" id=img1>
+			<br>
+		</div>
+		<div id="div2">
+			<button id="b2"> move left </button>
+			<button id="b1"> move right </button>
+		</div>
+	</body>
+</html>

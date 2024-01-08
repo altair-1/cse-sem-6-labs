@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <title>q3</title>
+  <script type = "text/javascript" src = "jquery-3.7.1.js"></script>
+  <script> 
+    $(document).ready(function(){
+      $("button").click(function(){
+        $("#divright").css("background-color",$("#bgcolor").val());
+        $("#greet").css("font-family",$("#fonttype").val());
+        $("#greet").css("font-size",parseInt($("#text1").val()));
+        if($("#None").is(":checked")){
+          $("#divright").css("border-style","None"); 
+        } else if($("#Double").is(":checked") && $("#Solid").is(":checked")){
+          $("#divright").css("border-style","Double Solid",); 
+        } else if($("#Double").is(":checked")){
+          $("#divright").css("border-style","Double"); 
+        } else if($("#Solid").is(":checked")){
+          $("#divright").css("border-style","Solid"); 
+        }
+        $("#greet").text($("#txarea1").val());
+        if($("#checkbox1").prop("checked")==true){
+          $("img").attr("src", "birthday.jfif");
+          $("img").attr("width", "300px");
+          $("img").attr("height", "300px");
+        }
+      });
+    });
+  </script> 
+  <body>
+    <div id="divright" style="position: absolute; width: 400px; height: 700px; right:100px; align-items: center">
+      <p id="greet" align="center"></p>
+      <img  width=0px height=0px style="margin-left: 50px">
+    </div>
+    <div style="position: absolute; left: 100px">
+      <h1>birthday card</h1>
+      <p1>choose a background color: </p1>
+      <select id="bgcolor">
+        <option value="yellow">yellow</option>
+        <option value="blue">blue</option>
+      </select>
+      <br></br>
+      <p1>choose a font: </p1>
+      <select id="fonttype">
+        <option value="verdana">verdana</option>
+        <option value="times new roman">times new roman</option>
+      </select>
+      <br></br>
+      <p1>choose a font size: </p1>
+      <input type="text" id="text1">
+      <p>choose a border style: </p>
+      <input type="radio" id="None" value="None">
+      <label for="None">none</label><br>
+      <input type="radio" id="Double" value="Double">
+      <label for="Double">double</label><br>
+      <input type="radio" id="Solid"  value="Solid">
+      <label for="Solid">solid</label>
+      <br>  
+      <br>
+      <p1>add default picture</p1>
+      <input type="checkbox" id="checkbox1" value="cb1">
+      <br>
+      <br>
+      <p1>enter greeting text below: </p1><br><br>
+      <input type="textarea" id="txarea1"><br><br>
+      <button>update</button>
+    </div>
+  </body>
+</html>
