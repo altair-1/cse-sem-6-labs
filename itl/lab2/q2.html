@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>q2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        form {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<h2>employee management system</h2>
+<!-- Display Employees Table -->
+<table id="employeeTable">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>position</th>
+            <th>action</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+<!-- Employee Form -->
+<form id="employeeForm">
+    <h3>add/update employee</h3>
+    <label for="name">name:</label>
+    <input type="text" id="name" required>
+    <label for="position">position:</label>
+    <input type="text" id="position" required>
+    <button type="submit">add/update employee</button>
+</form>
+<script>
+    // Simulated in-memory database
+    let employees = [
+        { id: 1, name: 'aryan singh', position: 'data analyst' },
+        { id: 2, name: 'riya sharma', position: 'software engineer' }
+    ];
+    // Function to render employees table
+    function renderTable() {
+        const tableBody = document.querySelector('#employeeTable tbody');
+        tableBody.innerHTML = '';
+        employees.forEach(employee => {
+            const row = tableBody.insertRow();
+            row.innerHTML = `<td>${employee.id}</td>
+                             <td>${employee.name}</td>
+                             <td>${employee.position}</td>
+                             <td>
+                                <button onclick="editEmployee(${employee.id})">edit</button>
+                                <button onclick="deleteEmployee(${employee.id})">delete</button>
+                             </td>`;
+        });
+    }
+    // Function to add or update employee
+    function addOrUpdateEmployee(name, position, id) {
+        if (id) {
+            // Update existing employee
+            const index = employees.findIndex(e => e.id === id);
+            if (index !== -1) {
+                employees[index].name = name;
+                employees[index].position = position;
+            }
+        } else {
+            // Add new employee
+            const newEmployee = {
+                id: employees.length + 1,
+                name: name,
+                position: position
+            };
+            employees.push(newEmployee);
+        }
+        renderTable();
+        clearForm();
+    }
+    // Function to edit employee
+    function editEmployee(id) {
+        const employee = employees.find(e => e.id === id);
+        if (employee) {
+            document.getElementById('name').value = employee.name;
+            document.getElementById('position').value = employee.position;
+            document.getElementById('employeeForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+                addOrUpdateEmployee(document.getElementById('name').value, document.getElementById('position').value, id);
+            });
+        }
+    }
+    // Function to delete employee
+    function deleteEmployee(id) {
+        employees = employees.filter(e => e.id !== id);
+        renderTable();
+    }
+    // Function to clear form
+    function clearForm() {
+        document.getElementById('name').value = '';
+        document.getElementById('position').value = '';
+        document.getElementById('employeeForm').removeEventListener('submit', function (e) {
+            e.preventDefault();
+        });
+    }
+    // Initial rendering of the table
+    renderTable();
+    // Event listener for form submission
+    document.getElementById('employeeForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        addOrUpdateEmployee(document.getElementById('name').value, document.getElementById('position').value);
+    });
+</script>
+</body>
+</html>

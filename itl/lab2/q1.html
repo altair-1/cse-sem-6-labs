@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>q1</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container text-center">
+    <h3 class="text-centre">
+        student biodata form<br>
+        <small class="text-muted">mit manipal</small>
+    </h3>
+    </div>
+    <form class="container mx-auto bg-light p-4">
+        <div class="form-row p-1">   
+            <div class="col">
+              <label for="name1">first name</label>
+              <input type="text" class="form-control" id="name1" placeholder="first name">
+            </div>
+            <div class="col">
+              <label for="name1">last name</label>
+              <input type="text" class="form-control" id="name2"placeholder="last name">
+            </div>
+        </div>
+        <div class="form-group p-1">
+          <label for="exampleInputEmail1">email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="enter email">
+          <small id="emailHelp" class="form-text text-muted">we'll never share your email with anyone else</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="password">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">select course</label>
+            <select class="form-control" id="exampleFormControlSelect1">
+              <option>aeronautical</option>
+              <option>somputer science</option>
+              <option>electrical</option>
+              <option>information technology</option>
+              <option>mechanical</option>
+            </select>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+            <label class="form-check-label" for="inlineRadio1">male</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+            <label class="form-check-label" for="inlineRadio2">female</label>
+        </div>
+        <p> </p>
+        <!-- <div class="container"> -->
+            <h6>faculty list</h6>
+            <table class="table table-light table-striped">
+            <thead>
+            <tr>
+            <th>firstname</th>
+            <th>lastname</th>
+            <th>email</th>
+            <th>course</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>raju</td>
+                <td>rastogi</td>
+                <td>raju@yahoo.com</td>
+                <td>cse</td>
+                </tr> 
+                <tr>
+                <td>farhan</td>
+                <td>qureshi</td>
+                <td>farhan@gmail.com</td>
+                <td>mechanical</td>
+                </tr>
+                <tr>
+                <td>rancho</td>
+                <td>chanchad</td>
+                <td>rancho@gmail.com</td>
+                <td>electrical</td>
+                </tr>
+            </tbody>
+            </table>
+        <!-- </div> -->
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">agree to t&c</label>
+        </div>
+        <p> </p>
+        <button type="submit" class="btn btn-outline-info">submit</button>
+    </form>
+</body>
+</html>
