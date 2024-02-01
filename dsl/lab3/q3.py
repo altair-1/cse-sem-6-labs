@@ -1,0 +1,22 @@
+import numpy as np
+import pandas as pd
+list1=[1,2,3,4]
+arr1=np.array(list1, dtype="float")
+print(arr1)
+tuple1=(7,6,5,4)
+arr2=np.array(tuple1, dtype="float")
+print(arr2)
+print("zeroes matrix: ")
+zeroes1=np.zeros((3,4))
+print(zeroes1)
+print(np.arange(0,20,5))
+e=zeroes1.reshape(2,2,3)
+print(e)
+f=np.array([[1,11,2],[3,55,6]])
+print("array: ")
+print(f)
+print(f.max(axis=0))
+print(f.min(axis=0))
+print(f.max(axis=1))
+print(f.min(axis=1))
+print("sum: ",f.sum())
